@@ -14,6 +14,7 @@ class Videos::VideosController < ApplicationController
 
   def create
     @video = Video.new(video_params)
+    @video.user_id = @user.id
     if @video.save
       flash[:notice] = "You just created " + @video.title + "!"
       redirect_to video_path(@video)
@@ -59,7 +60,7 @@ class Videos::VideosController < ApplicationController
     end
 
     def video_params
-      params.require(:video).permit(:title, :image, :video, :state, :country, :description, :latitude, :longitude)
+      params.require(:video).permit(:title, :image, :video, :description)
     end
 
 end

@@ -1,4 +1,5 @@
-extend FriendlyId
+class User < ApplicationRecord
+  extend FriendlyId
   friendly_id :username, use: :slugged
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :timeoutable
@@ -9,8 +10,8 @@ extend FriendlyId
   validates :username, presence: true, uniqueness: true, length: { maximum: 50 }, format: { with: /\A[a-zA-Z0-9]+\Z/i }
   validate :validate_username
 
-  has_many :events, dependent: :destroy
-  has_many :rsvps, dependent: :destroy
+  has_many :videos, dependent: :destroy
+  has_many :votes, dependent: :destroy
 
   before_save :should_generate_new_friendly_id?, if: :username_changed?
   before_save :downcase_username
@@ -51,3 +52,5 @@ extend FriendlyId
     def downcase_username
       self.username = username.downcase
     end
+
+end
