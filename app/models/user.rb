@@ -31,16 +31,16 @@ class User < ApplicationRecord
     end
   end
 
-  def voted?(thing)
-    Vote.exists? user_id: id, vote_id: vote.id
+  def voted?(video)
+    Vote.exists? user_id: id, video_id: video.id
   end
 
-  def unvote(thing)
-    Vote.find_by(user_id: id, vote_id: vote.id).destroy
+  def unvote(video)
+    Vote.find_by(user_id: id, video_id: video.id).destroy
   end
 
-  def vote_id(thing)
-    Vote.find_by(user_id: id, vote_id: vote.id).id
+  def vote_id(video)
+    Vote.find_by(user_id: id, video_id: video.id).id
   end
 
   private

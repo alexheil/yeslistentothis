@@ -1,6 +1,6 @@
 <%= @video.title %> - <%= @video.votes.count %>
 
-<% if user_signed_in? && current_user.rsvped?(@event) %>
+<% if user_signed_in? && current_user.voted?(@video) %>
   <div class="padding-bottom-mini">
     <%= link_to "Delete vote", video_vote_path(@video, current_user.vote_id(@event)), method: :delete, class: "submit-button" %>
   </div>
@@ -8,6 +8,21 @@
   <div class="padding-bottom-mini">
     <%= link_to "vote", video_votes_path(@video), :method => :post, class: "submit-button" %>
   </div>
+
+
+<% if Vote.new.errors.any? %>
+            <div id="error_explanation">
+                <h2><%= pluralize(Vote.new.errors.count, "error") %> prevented your vote from being saved:</h2>
+              <ul>
+              <% Vote.new.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+
+
 <% else %>
   <%= link_to(sign_in_path) do %>
     <div class="submit-button margin-bottom-mini">
