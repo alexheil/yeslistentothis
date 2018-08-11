@@ -19,11 +19,11 @@ class Video < ApplicationRecord
 
     def generated_slug
       require 'securerandom' 
-      self.slug = SecureRandom.hex(6) if slug.blank?
+      self.slug = SecureRandom.hex(3) if slug.blank?
     end
 
     def title_generated
-      self.title = self.artist + ", " + self.track
+      self.title = self.artist + " - " + self.track
     end
 
 end

@@ -12,9 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ *= require simple_calendar
  */
 
-$main: #E37473; /* OCEAN GREEN */
+$main: #B32F47; /* OCEAN GREEN */
 $light: #FFD3B5; /* SPRING RAIN */
 $dark: #5E5A5F; /* HOKEY POKEY */
 $green: #47B975; /* OCEAN GREEN */
@@ -77,12 +78,12 @@ a {
 }
 
 ::selection {
-  color: $black;
+  color: $white;
   background: $main;
 }
 
 ::-moz-selection {
-  color: $black;
+  color: $white;
   background: $main;
 }
 
