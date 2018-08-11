@@ -4,7 +4,8 @@ class Video < ApplicationRecord
 
   belongs_to :user
 
-  has_many :votes
+  has_many :votes, dependent: :destroy
+  has_many :users, through: :votes
 
   before_save :should_generate_new_friendly_id?, if: :title_changed?
   before_save :generated_slug

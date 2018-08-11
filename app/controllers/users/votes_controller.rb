@@ -1,9 +1,15 @@
 class Users::VotesController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_user
+
+  def new
+    @user = current_user
+    @video = Video.friendly.find(params[:video_id])
+    @vote = Vote.new
+  end
   
   def create
+    @user = current_user
     @video = Video.friendly.find(params[:video_id])
     @vote = Vote.new
     @vote.user_id = @user.id
@@ -22,8 +28,9 @@ class Users::VotesController < ApplicationController
   end
 
   def destroy
+    @user = current_user
     @video = Video.friendly.find(params[:video_id])
-    @user.unvote(@event)
+    @user.unvote(@video)
     redirect_to video_path(@video)
     # respond_to do |format|
     #   format.html { redirect_to video_path(@video) }
