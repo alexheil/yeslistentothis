@@ -1,0 +1,116 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+/* ********************** HEADER ***************** */
+
+.header-container {
+  width: 100%;
+  margin: 0 auto;
+  background: transparent;
+  a {
+    color: $black;
+  }
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  .site-title {
+    @include transition;
+    display: inline-block;
+    width: 24%;
+    color: $white;
+    font-weight: 400;
+    letter-spacing: $letterspacer;
+    &:hover {
+      text-decoration: none;
+      color: $light;
+    }
+  }
+  ul {
+    width: 50%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    display: inline-block;
+    li {
+      width: 25%;
+      display: inline-block;
+      position: relative;
+      text-align: center;
+    }
+  }
+}
+
+.nav-links {
+  @include transition;
+  cursor: pointer;
+  color: $white;
+  padding: 3vh 1vw;
+  font-weight: 400;
+  letter-spacing: $letterspacer;
+  &:hover {
+    color: $main;
+  }
+}
+
+/* ******************* FOOTER ******************* */
+
+.full-footer-container {
+  width: 100%;
+  clear: both;
+  padding-top: 15vh;
+}
+
+.footer {
+  font-size: .75em;
+  text-transform: uppercase;
+  width: 100%;
+  display: inline-block;
+  span {
+    float: left;
+  }
+  .nav-links {
+    @include transition;
+    color: $black;
+    padding: 0;
+    &:hover {
+      @include transition;
+      color: $main;
+    }
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    float: right;
+    li {
+      position: relative;
+      display: inline-block;
+      margin: 0 1vw;
+      &:first-child {
+        margin: 0 1vw 0 0;
+      }
+    }
+  }
+}
+
+.footer-disclaimer {
+  font-size: .75em;
+  text-align: center;
+  color: $black;
+  padding-bottom: 2vh;
+}
