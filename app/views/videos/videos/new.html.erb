@@ -12,16 +12,22 @@
       <div class="padding-top">
         <%= form_for(@video, url: videos_path) do |f| %>
 
-          <% if @video.errors.any? %>
-            <div id="error_explanation">
-                <h2><%= pluralize(@video.errors.count, "error") %> prevented your video from being saved:</h2>
-              <ul>
-              <% @video.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-              </ul>
+          <div class="field">
+            <div class="flex">
+              <div class="field-three-column">
+                <%= f.label :month %>
+                <%= f.select :month, options_for_select(month_select) %>
+              </div>
+              <div class="field-three-column">
+                <%= f.label :day %>
+                <%= f.select :day, options_for_select(day_select)%>
+              </div>
+              <div class="field-three-column">
+                <%= f.label :year %>
+                <%= f.select :year, options_for_select(year_select)%>
+              </div>
             </div>
-          <% end %>
+          </div>
 
           <div class="field">
             <%= f.label :artist %>

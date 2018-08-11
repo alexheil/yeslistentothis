@@ -11,6 +11,9 @@ class CreateVideos < ActiveRecord::Migration[5.0]
       t.text :description
       t.integer :votes
       t.integer :views
+      t.string :month
+      t.string :day
+      t.string :year
       t.datetime :start_time
       t.string :slug
 

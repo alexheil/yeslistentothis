@@ -51,6 +51,9 @@ ActiveRecord::Schema.define(version: 20180810003750) do
     t.text     "description"
     t.integer  "votes"
     t.integer  "views"
+    t.string   "month"
+    t.string   "day"
+    t.string   "year"
     t.datetime "start_time"
     t.string   "slug"
     t.datetime "created_at",  null: false

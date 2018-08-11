@@ -4,6 +4,10 @@ class Videos::VideosController < ApplicationController
   before_action :authenticate_user!, except: :show
   before_action :authenticate_owner, except: [:show, :new, :create]
 
+  def index
+    @videos = Video.all
+  end
+
   def show
     @video = Video.friendly.find(params[:id])
   end

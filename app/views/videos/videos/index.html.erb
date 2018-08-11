@@ -1,0 +1,24 @@
+<%= provide(:title, "Past Winner") %>
+
+<div class="wrapper">
+  <div class="container">
+
+    <%= month_calendar events: (@videos) do |day, videos| %>    
+      <%= content_tag :div, class: "calendar-day", data: {date: day} do %>      
+        <div class="day">
+          <%= day %>
+        </div>
+
+
+        <% if videos.any? %>
+          <div class="videos">
+            <%= pluralize(videos.count, "Video") %>
+          </div>
+        <% end %>
+
+
+      <% end %>  
+    <% end %>
+
+  </div>
+</div>
