@@ -44,6 +44,7 @@ gem 'kaminari'
 gem 'shrine'
 gem 'image_processing'
 gem 'mini_magick'
+gem 'streamio-ffmpeg'
 gem 'aws-sdk-s3'
 
 group :development, :test do

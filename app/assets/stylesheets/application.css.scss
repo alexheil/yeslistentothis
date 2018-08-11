@@ -14,6 +14,125 @@
  *= require_self
  */
 
+$main: #E37473; /* OCEAN GREEN */
+$light: #FFD3B5; /* SPRING RAIN */
+$dark: #CE414F; /* HOKEY POKEY */
+$green: #47B975; /* OCEAN GREEN */
+$border: #BEC8CE; /* LOBLOLLY */
+$red: #F44336; /* POMEGRANATE */
+$yellow: #ff9800; /* PIZAZZ */
+$black: #212121; /* GREEN KELP */
+$white: #f9f9f9; /* FAFAFA DESERT STORM */
+$grey: #EEEEEE; /* GALLERY */
+$fancy: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$color1: #434437;
+$color2: #7cb486;
+$color3: #92d1c8;
+$color4: #d4cd9c;
+$color5: #bd5041;
+$color6: #E37473;
+$color7: #81B299;
+
+$radius: 6px;
+$shadow: 0 10px 20px -12px rgba(0, 0, 0, 0.42), 0 3px 20px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+$shadow-lite: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+$large: 2em;
+$med: 1.5em;
+$smed: 1.25em; 
+$small: 0.85em;
+$letterspacer: .05em;
+
+@mixin transition {
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -o-transition: .3s;
+  &:hover {
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -o-transition: .3s;
+  }
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5em;
+  letter-spacing: 0px;
+  font-family: $fancy;
+  font-weight: 400;
+  background: $black;
+  color: $white;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  @include transition;
+  color: $main;
+  text-decoration: none;
+  &:hover {
+    color: $light;
+  }
+}
+
+::selection {
+  color: $black;
+  background: $main;
+}
+
+::-moz-selection {
+  color: $black;
+  background: $main;
+}
+
+.no-mobile {
+  display: block;
+}
+
+.only-mobile {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.container {
+  width: 96%;
+  margin: 0 auto;
+}
+
+.mid-container {
+  width: 70%;
+  margin: 0 auto; 
+}
+
+/* ********************** SPACING **************** */
+
+.padding-vertical {
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
+
+.padding-bottom {
+  padding-bottom: 2vh;
+}
+
+.padding-horizontal {
+  padding-right: 2vw;
+  padding-left: 2vw;
+}
+
+.border-bottom {
+  border-bottom: 1px solid $grey;
+}
 
 /* ********************** HEADER ***************** */
 
@@ -22,33 +141,34 @@
   margin: 0 auto;
   background: transparent;
   a {
-    color: $black;
+    color: $white;
   }
 }
 
 .nav {
-  display: flex;
-  justify-content: space-between;
+  display: block;
   .site-title {
     @include transition;
-    display: inline-block;
-    width: 24%;
+    display: block;
+    width: 100%;
+    font-size: $large;
+    text-align: center;
     color: $white;
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: $letterspacer;
     &:hover {
       text-decoration: none;
-      color: $light;
+      color: $main;
     }
   }
   ul {
-    width: 50%;
+    width: 100%;
     padding: 0;
     margin: 0;
     text-align: center;
-    display: inline-block;
+    display: block;
     li {
-      width: 25%;
+      width: 20%;
       display: inline-block;
       position: relative;
       text-align: center;
@@ -59,8 +179,8 @@
 .nav-links {
   @include transition;
   cursor: pointer;
-  color: $white;
-  padding: 3vh 1vw;
+  color: $black;
+  padding: 1vh 1vw;
   font-weight: 400;
   letter-spacing: $letterspacer;
   &:hover {
@@ -78,7 +198,6 @@
 
 .footer {
   font-size: .75em;
-  text-transform: uppercase;
   width: 100%;
   display: inline-block;
   span {
@@ -86,7 +205,7 @@
   }
   .nav-links {
     @include transition;
-    color: $black;
+    color: $white;
     padding: 0;
     &:hover {
       @include transition;
@@ -111,6 +230,6 @@
 .footer-disclaimer {
   font-size: .75em;
   text-align: center;
-  color: $black;
+  color: $white;
   padding-bottom: 2vh;
 }
