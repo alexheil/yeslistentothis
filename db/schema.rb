@@ -43,10 +43,14 @@ ActiveRecord::Schema.define(version: 20180810003750) do
   create_table "videos", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "title"
+    t.string   "artist"
+    t.string   "track"
+    t.string   "genre"
     t.string   "video_data"
     t.string   "image_data"
     t.text     "description"
     t.integer  "votes"
+    t.integer  "views"
     t.datetime "start_time"
     t.string   "slug"
     t.datetime "created_at",  null: false

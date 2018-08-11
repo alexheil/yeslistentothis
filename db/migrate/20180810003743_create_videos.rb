@@ -3,10 +3,14 @@ class CreateVideos < ActiveRecord::Migration[5.0]
     create_table :videos do |t|
       t.references :user
       t.string :title
+      t.string :artist
+      t.string :track
+      t.string :genre
       t.string :video_data
       t.string :image_data
       t.text :description
       t.integer :votes
+      t.integer :views
       t.datetime :start_time
       t.string :slug
 
