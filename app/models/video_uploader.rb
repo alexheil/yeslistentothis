@@ -1,4 +1,3 @@
-
 require "streamio-ffmpeg"
 
 class VideoUploader < Shrine

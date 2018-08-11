@@ -5,12 +5,23 @@
     <div class="form-container padding-vertical">
 
 
-      <div class="title">
+      <div class="form-title">
         Create a video
       </div>
 
       <div class="padding-top">
         <%= form_for(@video, url: videos_path) do |f| %>
+
+          <% if @video.errors.any? %>
+            <div id="error_explanation">
+                <h2><%= pluralize(@video.errors.count, "error") %> prevented your video from being saved:</h2>
+              <ul>
+              <% @video.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
 
           <div class="field">
             <%= f.label :artist %>
@@ -27,10 +38,17 @@
             <%= f.text_field :genre, class: "text-field" %>
           </div>
 
-          <div class="padding-bottom border-bottom">
+          <div class="padding-bottom">
             <label class="image-button" for="video-image">Upload a video thumbnail</label>
             <%= f.hidden_field :image, value: @video.cached_image_data %>
             <span class="hidden"><%= f.file_field :image, id: "video-image" %></span>
+            <div class="file-name"></div>
+          </div>
+
+          <div class="field">
+            <label class="image-button" for="video-video">Upload a video</label>
+            <%= f.hidden_field :video, value: @video.cached_video_data %>
+            <span class="hidden"><%= f.file_field :video, id: "video-video" %></span>
             <div class="file-name"></div>
           </div>
 

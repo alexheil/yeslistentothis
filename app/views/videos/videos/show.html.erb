@@ -1,20 +1,49 @@
-<%= @video.title %> - <%= @video.votes.count %>
+<%= provide(:title, sanitize(@video.title)) %>
 
-<% if user_signed_in? && current_user.voted?(@video) %>
-  <div class="padding-bottom-mini">
-    <%= link_to "Delete vote", video_vote_path(@video, current_user.vote_id(@video)), method: :delete, class: "submit-button" %>
-  </div>
-<% elsif user_signed_in? %>
-  <div class="padding-bottom-mini">
-    <%= link_to "vote", video_votes_path(@video), :method => :post, class: "submit-button" %>
-  </div>
+<div class="wrapper">
+  <div class="container">
+    <div class="mid-container">
 
+      <video class="video-player border-bottom" width="100%" height="auto" controls controlslist="nodownload">
+        <source src="<%= @video.video_url %>">
+        Your browser does not support this video.
+      </video>
 
+      <div class="padding-vertical border-bottom">
+        advertisement
+      </div>
 
-<% else %>
-  <%= link_to(sign_in_path) do %>
-    <div class="submit-button margin-bottom-mini">
-      vote
+      <div class="flex padding-top">
+        <div class="two-column video-title">
+          <%= @video.title %>
+        </div>
+
+        <div class="two-column video-title right">
+          <%= pluralize(@video.votes.count, "Vote") %>
+          <% if user_signed_in? && current_user.voted?(@video) %>
+            <%= link_to "-", video_vote_path(@video, current_user.vote_id(@video)), method: :delete %>
+          <% elsif user_signed_in? %>
+            <%= link_to "+", video_votes_path(@video), :method => :post %>
+          <% else %>
+            <%= link_to(sign_in_path) do %>
+              +
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="padding-top">
+        Start Date - Views
+      </div>
+
+      <div class="padding-top">
+        Amazon and share buttons
+      </div>
+
+      <div class="padding-top">
+        <%= sanitize(@video.description) %>
+      </div>
+
     </div>
-  <% end %>
-<% end %>
+  </div>
+</div>

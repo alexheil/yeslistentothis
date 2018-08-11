@@ -16,7 +16,7 @@
 
 $main: #E37473; /* OCEAN GREEN */
 $light: #FFD3B5; /* SPRING RAIN */
-$dark: #CE414F; /* HOKEY POKEY */
+$dark: #5E5A5F; /* HOKEY POKEY */
 $green: #47B975; /* OCEAN GREEN */
 $border: #BEC8CE; /* LOBLOLLY */
 $red: #F44336; /* POMEGRANATE */
@@ -114,6 +114,20 @@ a {
   margin: 0 auto; 
 }
 
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
 /* ********************** SPACING **************** */
 
 .padding-vertical {
@@ -125,6 +139,10 @@ a {
   padding-bottom: 2vh;
 }
 
+.padding-top {
+  padding-top: 2vh;
+}
+
 .padding-horizontal {
   padding-right: 2vw;
   padding-left: 2vw;
@@ -132,6 +150,17 @@ a {
 
 .border-bottom {
   border-bottom: 1px solid $grey;
+}
+
+.border-top {
+  border-top: 1px solid $grey;
+}
+
+.two-column {
+  margin: 0;
+  width: 49%;
+  display: inline-block;
+  vertical-align: top;
 }
 
 /* ********************** HEADER ***************** */
@@ -232,4 +261,189 @@ a {
   text-align: center;
   color: $white;
   padding-bottom: 2vh;
+}
+
+
+/* ************ FORMS ************** */
+
+@mixin buttons {
+  @include transition;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  cursor: pointer;
+  box-sizing: border-box;
+  font-family: $fancy;
+  text-transform: uppercase;
+  letter-spacing: $letterspacer;
+  padding: 1vh 1vw;
+  background: transparent;
+  border: 2px solid $main;
+  color: $main;
+  -webkit-font-smoothing: unset;
+  &:hover {
+    background: $main;
+    color: $white;
+  }
+}
+
+.submit-button {
+  @include buttons;
+}
+
+.delete-button {
+  @include buttons;
+  border: 2px solid $dark;
+  color: $dark;
+  &:hover {
+    background: $dark;
+  }
+}
+
+.image-button {
+  @include buttons;
+  border: 2px solid $dark;
+  color: $dark;
+  &:hover {
+    border: 2px solid $white;
+    background: $white;
+    color: $black;
+  }
+}
+
+.black-button {
+  @include buttons;
+  border: 2px solid $black;
+  color: $black;
+  &:hover {
+    background: $black;
+  }
+}
+
+textarea:focus, input:focus, select {
+  outline: none;
+}
+
+label {
+  -webkit-font-smoothing: antialiased;
+}
+
+input, textarea {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+
+::placeholder {
+    color: $border;
+  }
+
+@mixin fields {
+  width: 100%;
+  font-size: 1em;
+  font-weight: 400;
+  border: none;
+  display: inline-block;
+  box-sizing: border-box;
+  font-family: $fancy;
+  letter-spacing: .5px;
+}
+
+select {
+  @include fields;
+  text-indent: 1vw;
+  background: $grey;
+  height: 4vh;
+  background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right $grey;
+  -webkit-appearance: none;
+  background-position-x: 98%;
+  border-radius: 0px;
+}
+
+.text-field {
+  @include fields;
+  padding: 1vh 1vw;
+  background: $dark;
+  color: $white;
+}
+
+.text-area {
+  @include fields;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 15vh;
+  max-height: 30vh;
+  height: 15vh;
+  padding: 1vh 1vw;
+  background: $dark;
+  color: $white;
+  display: block;
+}
+
+.field {
+  margin: 0 0 2vh 0;
+}
+
+.field-two-column {
+  width: 49%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.field-three-column {
+  width: 32%;
+  display: inline-block;
+  vertical-align: top;
+  select { 
+    background-position-x: 94%;
+  }
+}
+
+.form-container {
+  width: 40%;
+  margin: 0 auto;
+  a {
+    color: $main;
+    &:hover {
+      color: $light;
+    }
+  }
+  .main-color {
+    a {
+      color: $main;
+      &:hover {
+        color: $dark;
+      }
+    }
+  }
+  .link-color {
+    a {
+      color: $white;
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+  .form-title {
+    margin: 2vh 0;
+    font-size: 1.75em;
+    text-align: center;
+  }
+}
+
+/* **************** PAGES ************** */
+
+video {
+  display: block;
+  max-height: 75vh;
+}
+
+.video-player {
+  padding: 5vh 0;
+}
+
+.video-title {
+  margin: 2vh 0;
+  font-size: 1.5em;
 }

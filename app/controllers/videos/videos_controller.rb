@@ -2,7 +2,7 @@ class Videos::VideosController < ApplicationController
 
   before_action :set_user, except: :show
   before_action :authenticate_user!, except: :show
-  before_action :authenticate_owner, except: :show
+  before_action :authenticate_owner, except: [:show, :new, :create]
 
   def show
     @video = Video.friendly.find(params[:id])
@@ -60,7 +60,7 @@ class Videos::VideosController < ApplicationController
     end
 
     def video_params
-      params.require(:video).permit(:title, :image, :video, :description, :artist, :track, :genre, :views, :votes)
+      params.require(:video).permit(:title, :image, :video, :description, :artist, :track, :genre, :views, :votes, :remove_image, :remove_video)
     end
 
 end
