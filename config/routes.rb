@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   resources :users, controller: 'users/users', only: :show
 
-  resources :videos, controller: 'videos/videos', except: :index do
+  resources :videos, controller: 'videos/videos' do
     resources :votes, controller: 'users/votes', only: [:create, :destroy]
   end
   

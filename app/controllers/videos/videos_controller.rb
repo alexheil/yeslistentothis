@@ -1,8 +1,8 @@
 class Videos::VideosController < ApplicationController
 
-  before_action :set_user, except: :show
-  before_action :authenticate_user!, except: :show
-  before_action :authenticate_owner, except: [:show, :new, :create]
+  before_action :set_user, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_owner, except: [:index, :show, :new, :create]
 
   def index
     @videos = Video.all
@@ -64,7 +64,7 @@ class Videos::VideosController < ApplicationController
     end
 
     def video_params
-      params.require(:video).permit(:title, :image, :video, :description, :artist, :track, :genre, :views, :votes, :remove_image, :remove_video)
+      params.require(:video).permit(:title, :image, :video, :description, :artist, :track, :genre, :views, :votes, :remove_image, :remove_video, :month, :day, :year)
     end
 
 end
