@@ -2,3 +2,7 @@
 
 <%= link_to "register", register_path %>
 <%= link_to "sign in", sign_in_path %>
+
+<%= SimpleCalendar::PastWinnersCalendar.new(self, {}).render do |date| %>
+  <%= date %>
+<% end %>
