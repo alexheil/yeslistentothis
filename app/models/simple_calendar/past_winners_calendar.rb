@@ -2,8 +2,8 @@ class SimpleCalendar::PastWinnersCalendar < SimpleCalendar::Calendar
   private
 
     def date_range
-      beginning = start_date.beginning_of_week + 1.day
-      ending    = start_date.end_of_week - 1.day
+      beginning = Date.today - 30.days
+      ending    = Date.today
       (beginning..ending).to_a
     end
 

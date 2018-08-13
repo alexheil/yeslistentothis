@@ -15,6 +15,7 @@
  *= require simple_calendar
  */
 
+
 $main: #B32F47; /* OCEAN GREEN */
 $light: #FFD3B5; /* SPRING RAIN */
 $dark: #5E5A5F; /* HOKEY POKEY */
@@ -53,6 +54,10 @@ $letterspacer: .05em;
     -moz-transition: .3s;
     -o-transition: .3s;
   }
+}
+
+li {
+  list-style: none;
 }
 
 body {
