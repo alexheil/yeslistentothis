@@ -1,0 +1,18 @@
+<div class="simple-calendar">
+  <table class="table table-striped">
+
+    <tbody>
+      <% date_range.each_slice(7) do |week| %>
+        <%= content_tag :tr, class: calendar.tr_classes_for(week) do %>
+          <% week.each do |day| %>
+            <%= content_tag :li, class: calendar.td_classes_for(day) do %>
+              
+                <% block.call day, sorted_events.fetch(day, []) %>
+
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

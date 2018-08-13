@@ -3,6 +3,10 @@
 <%= link_to "register", register_path %>
 <%= link_to "sign in", sign_in_path %>
 
+<%= SimpleCalendar::WinnersCalendar.new(self, {}).render do |date| %>
+  <%= date %>
+<% end %>
+
 <%= SimpleCalendar::PastWinnersCalendar.new(self, {}).render do |date| %>
   <%= date %>
 <% end %>
