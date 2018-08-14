@@ -2,10 +2,10 @@
   <div class="padding-horizontal">
     <nav class="nav padding-vertical border-bottom">
       <div class="padding-bottom">
-        <%= link_to 'Yes, Listen To This', root_url, class: 'site-title' %>
+        <%= link_to 'Yes, Listen To This!', root_url, class: 'site-title' %>
       </div>
       <ul class="center">
-        <li><%= link_to 'Past Winners', videos_path, class: "nav-links" %></li> | 
+        <li><%= link_to 'Past Winners', past_winners_path, class: "nav-links" %></li> | 
         <% if user_signed_in? %>
           <li><%= link_to 'Add Video', new_video_path, class: "nav-links" %></li>
            | <li><%= link_to 'Your Page', user_path(current_user), class: "nav-links" %></li>

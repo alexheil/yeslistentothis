@@ -1,0 +1,82 @@
+<%= provide(:title, "Past Winners") %>
+
+<div class="wrapper">
+  <div class="container">
+    <div class="mid-container">
+
+      <div class="padding-top page-title center">
+        Past Winners
+      </div>
+
+      <div class="padding-vertical">
+        <%= month_calendar events: (@videos) do |day, videos| %>
+          <% if videos.any? %>
+            <%= content_tag :div, class: "calendar-day", data: {date: day} do %>   
+              <div class="day page-title padding-top">
+                <%= day %>
+              </div>
+
+
+              <div class="padding-top">
+                <% if videos.any? %>
+                  
+
+                  <% videos.sort{ |a,b| b.votes.count <=> a.votes.count  }.take(1).each do |video| %>
+                    <div class="padding-bottom">
+                      <div class="flex">
+                        <div class="twenty-two-image">
+                          <%= link_to(video_path(video)) do %>
+                            <img class="thumbnail-image" srcset="<%= video.image_url(:original) %>" width="100%" height="auto" />
+                          <% end %>
+                        </div>
+                        <div class="fifty">
+                          <div class="video-title padding-bottom-mini">
+                            <%= link_to video.title, video_path(video) %>
+                          </div>
+                          <div class="only-mobile bold">
+                            <%= pluralize(video.votes.count, "Vote") %>
+                          </div>
+                          <div class="bold">
+                            <%= video.genre %>
+                          </div>
+                          <div class="padding-bottom-mini">
+                            <%= video.description %>
+                          </div>
+                        </div>
+                        <div class="no-mobile twenty-two right center-height title-lower">
+                          <%= pluralize(video.votes.count, "Vote") %>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+
+
+                  <% videos.sort{ |a,b| b.votes.count <=> a.votes.count  }[1,2].each do |video| %>
+                    <div class="padding-bottom-mini">
+                      <div class="flex">
+                        
+
+                        <div class="seventy">
+                          <div class="video-title padding-bottom-mini">
+                            <%= link_to video.title, video_path(video) %>
+                          </div>
+                        </div>
+
+                        <div class="no-mobile thirty right title-lower">
+                          <%= pluralize(video.votes.count, "Vote") %>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+
+                <% end %>
+              </div>
+
+            <% end %>  
+          <% end %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'about' => 'static_pages#about'
   get 'faq' => 'static_pages#faq'
   get 'updates' => 'static_pages#updates'
+  get 'past_winners' => 'static_pages#past_winners', path: 'past-winners'
 
   devise_for :users, controllers: { sessions: "users/sessions", passwords: "users/passwords", registrations: "users/registrations", confirmations: "users/confirmations",  unlocks: "users/unlocks"}
 

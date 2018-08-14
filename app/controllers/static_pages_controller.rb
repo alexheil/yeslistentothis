@@ -20,4 +20,8 @@
   def terms
   end
 
+  def past_winners
+    @videos = Video.all
+  end
+
 end

@@ -16,14 +16,14 @@
  */
 
 
-$main: #B32F47; /* OCEAN GREEN */
-$light: #FFD3B5; /* SPRING RAIN */
+$main: #7151dd; /* OCEAN GREEN */
+$light: #FFE57B; /* SPRING RAIN */
 $dark: #5E5A5F; /* HOKEY POKEY */
 $green: #47B975; /* OCEAN GREEN */
 $border: #BEC8CE; /* LOBLOLLY */
 $red: #F44336; /* POMEGRANATE */
 $yellow: #ff9800; /* PIZAZZ */
-$black: #212121; /* GREEN KELP */
+$black: #111111; /* GREEN KELP */
 $white: #f9f9f9; /* FAFAFA DESERT STORM */
 $grey: #EEEEEE; /* GALLERY */
 $fancy: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -170,6 +170,18 @@ a {
   border-left-width: 0px;
 }
 
+.simple-calendar .prev-month {
+  background: transparent;
+}
+
+.simple-calendar .next-month {
+  background: transparent;
+}
+
+.simple-calendar .day {
+  height: auto;
+}
+
 
 /* ********************** SPACING **************** */
 
@@ -239,6 +251,7 @@ a {
     font-size: $large;
     text-align: center;
     color: $white;
+    text-transform: uppercase;
     font-weight: 700;
     letter-spacing: $letterspacer;
     &:hover {
@@ -483,7 +496,7 @@ select {
   }
   .form-title {
     margin: 2vh 0;
-    font-size: 1.75em;
+    font-size: $large;
     text-align: center;
   }
 }
@@ -503,6 +516,12 @@ video {
   font-size: 1.5em;
 }
 
+.page-title {
+  font-size: $large;
+  letter-spacing: $letterspacer;
+  text-transform: uppercase;
+}
+
 .thumbnail-image {
   width: 100%;
   height: 15vh;
@@ -517,6 +536,20 @@ video {
     -moz-transition: .3s ease-in-out;
     -o-transition: .3s ease-in-out;
   }
+}
+
+.seventy {
+  margin: 0;
+  width: 70%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.thirty {
+  margin: 0;
+  width: 28%;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .fifty {
@@ -548,6 +581,12 @@ video {
 .title-lower {
   font-size: $med;
 }
+
+
+
+
+
+
 
 
 

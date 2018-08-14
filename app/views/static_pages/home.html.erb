@@ -6,7 +6,7 @@
 
 
       <div class="border-bottom padding-bottom">
-        <div class="padding-top video-title center">
+        <div class="padding-top page-title center">
           Today's featured song
         </div>
         <%= calendar number_of_days: 1, start_date: Date.yesterday, events: @winner do |date, videos| %>
@@ -38,7 +38,7 @@
 
 
       <div class="padding-top-large">
-        <div class="padding-bottom video-title center">
+        <div class="padding-bottom page-title center">
           Vote today's winner
         </div>
         <%= calendar number_of_days: 1, events: @videos do |date, videos| %>
