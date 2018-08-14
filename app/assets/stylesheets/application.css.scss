@@ -10,9 +10,9 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require simple_calendar
  *= require_tree .
  *= require_self
- *= require simple_calendar
  */
 
 
@@ -134,19 +134,69 @@ a {
   text-align: right;
 }
 
+/* ********************* CALENDAR **************** */
+
+.simple-calendar .today {
+  background: transparent;
+}
+
+.simple-calendar table {
+  -webkit-border-horizontal-spacing: 0px;
+  -webkit-border-vertical-spacing: 0px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0px solid #dddddd;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  max-width: 100%;
+  width: 100%;
+}
+
+.simple-calendar td {
+  padding: 6px;
+  vertical-align: top;
+  width: 14%;
+  border: 0px solid #ddd;
+  border-top-color: #dddddd;
+  border-top-style: solid;
+  border-top-width: 0px;
+  border-right-color: #dddddd;
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-bottom-color: #dddddd;
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+  border-left-color: #dddddd;
+  border-left-style: solid;
+  border-left-width: 0px;
+}
+
+
 /* ********************** SPACING **************** */
 
-.padding-vertical {
+.padding-vertical-mini {
   padding-top: 2vh;
+  padding-bottom: 2vh;
+}
+
+.padding-vertical {
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+}
+
+.padding-bottom-mini {
   padding-bottom: 2vh;
 }
 
 .padding-bottom {
-  padding-bottom: 2vh;
+  padding-bottom: 5vh;
 }
 
 .padding-top {
-  padding-top: 2vh;
+  padding-top: 5vh;
+}
+
+.padding-top-large {
+  padding-top: 10vh;
 }
 
 .padding-horizontal {
@@ -450,6 +500,196 @@ video {
 }
 
 .video-title {
-  margin: 2vh 0;
   font-size: 1.5em;
+}
+
+.thumbnail-image {
+  width: 100%;
+  height: 15vh;
+  object-fit: cover;
+  display: block;
+  -webkit-backface-visibility: hidden;
+  -webkit-transition: .3s ease-in-out;
+  -moz-transition: .3s ease-in-out;
+  -o-transition: .3s ease-in-out;
+  &:hover {
+    -webkit-transition: .3s ease-in-out;
+    -moz-transition: .3s ease-in-out;
+    -o-transition: .3s ease-in-out;
+  }
+}
+
+.fifty {
+  margin: 0;
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.twenty-two {
+  margin: 0;
+  width: 22%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.twenty-two-image {
+  margin: 0;
+  width: 22%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.center-height {
+  line-height: 15vh;
+  height: 15vh;
+}
+
+.title-lower {
+  font-size: $med;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+
+  .container {
+    width: 98%;
+  }
+
+  .form-container {
+    width: 70%;
+  }
+
+  .fifty {
+    margin: 0;
+    width: 77%;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .twenty-two {
+    margin: 0;
+    width: 22%;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .twenty-two-image {
+    margin: 0;
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    padding-bottom: 1vh;
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+
+  .no-mobile {
+    display: none;
+  }
+
+  .only-mobile {
+    display: block;
+  }
+
+  .no-mobile-table {
+    display: none;
+  }
+
+  .only-mobile-table {
+    display: table-row;
+  }
+
+  .title {
+    text-align: center;
+    font-size: $med;
+  }
+
+  .post-title {
+    font-size: $smed;
+  }
+
+  .mid-container {
+    width: 100%;
+  }
+
+  .form-container {
+    width: 100%;
+  }
+
+  .two-column {
+    width: 100%;
+    padding-bottom: 1vh;
+  }
+
+  .sixteen {
+    width: 32%;
+    padding-bottom: 1vh;
+  }
+
+  .fifty {
+    width: 100%;
+  }
+
+  .twenty-two {
+    width: 100%;
+  }
+
+  .calendar-heading {
+    text-align: center;
+    font-size: $smed;
+  }
+
+  .calendar-day {
+    .events {
+      font-size: 16px;
+    }
+  }
+
+  .simple-calendar {
+    .day {
+      height: 50px;
+      font-size: 16px;
+    }
+  }
+
+  @mixin mobile-nav {
+    float: none;
+    text-align: center;
+  }
+
+  .nav {
+    display: block;
+    .nav-links {
+      padding: 1vh 1vw;
+    }
+    .site-title {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding-bottom: 2vh;
+    }
+    ul {
+      width: 100%;
+      display: block;
+      li {
+        width: 30%;
+        text-align: center;
+      }
+    }
+  }
+
+  .footer {
+    text-align: center;
+    span {
+      @include mobile-nav;
+    }
+    ul {
+      @include mobile-nav;
+    }
+  }
+
 }

@@ -44,7 +44,7 @@
             <%= f.text_field :genre, class: "text-field" %>
           </div>
 
-          <div class="padding-bottom">
+          <div class="padding-bottom-mini">
             <label class="image-button" for="video-image">Upload a video thumbnail</label>
             <%= f.hidden_field :image, value: @video.cached_image_data %>
             <span class="hidden"><%= f.file_field :image, id: "video-image" %></span>

@@ -5,6 +5,7 @@ class Video < ApplicationRecord
   include ImageUploader[:image]
   include VideoUploader[:video]
 
+  scope :popular, -> {select("videos.id, videos.slug, videos.title, videos.video_data, videos.start_time, count(votes.id) votes_count").joins(:votes).group("votes.id").reorder("votes_count desc").limit(3)}
 
   belongs_to :user
 
@@ -15,6 +16,10 @@ class Video < ApplicationRecord
   before_save :generated_slug
   before_save :title_generated
   before_save :pick_date
+
+  def self.yesterday
+    Video.where('start_time' => 'Date.today - 1.day')
+  end
 
   private
 

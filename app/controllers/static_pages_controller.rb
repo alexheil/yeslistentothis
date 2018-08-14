@@ -1,6 +1,8 @@
  class StaticPagesController < ApplicationController
 
   def home
+    @winner = Video.all
+    @videos = Video.all
   end
 
   def about
