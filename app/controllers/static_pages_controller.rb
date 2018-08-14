@@ -2,7 +2,7 @@
 
   def home
     @winner = Video.all
-    @videos = Video.all
+    @videos = Video.all.limit(10)
   end
 
   def about

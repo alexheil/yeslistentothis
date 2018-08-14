@@ -1,24 +1,64 @@
-<%= provide(:title, "Past Winner") %>
+<%= provide(:title, "Vote For Today's Video") %>
 
 <div class="wrapper">
   <div class="container">
+    <div class="mid-container">
 
-    <%= month_calendar events: (@videos) do |day, videos| %>    
-      <%= content_tag :div, class: "calendar-day", data: {date: day} do %>      
-        <div class="day">
-          <%= day %>
+      <div class="padding-top-large">
+        <div class="padding-bottom page-title center">
+          Vote today's winner
         </div>
+        <%= calendar number_of_days: 1, events: @videos do |date, videos| %>
+          <% videos.each do |video| %>
+
+            
+            <div class="padding-bottom">
+              <div class="flex">
+                <div class="twenty-two-image">
+                  <%= link_to(video_path(video)) do %>
+                    <img class="thumbnail-image" srcset="<%= video.image_url(:original) %>" width="100%" height="auto" />
+                  <% end %>
+                </div>
+                <div class="fifty">
+                  <div class="video-title padding-bottom-mini">
+                    <%= link_to video.title, video_path(video) %>
+                  </div>
+                  <div class="only-mobile bold">
+                    <%= pluralize(video.votes.count, "Vote") %>
+                  </div>
+                  <div class="bold">
+                    <%= video.genre %>
+                  </div>
+                  <div class="padding-bottom-mini">
+                    <%= video.description %>
+                  </div>
+                </div>
+                <div class="no-mobile twenty-two center center-height title-lower">
+                  <%= pluralize(video.votes.count, "Vote") %>
+                  <% if user_signed_in? && current_user.voted?(video) %>
+                    <%= link_to "-", video_vote_path(video, current_user.vote_id(video)), method: :delete %>
+                  <% elsif user_signed_in? %>
+                    <%= link_to "+", video_votes_path(video), :method => :post %>
+                  <% else %>
+                    <%= link_to(sign_in_path) do %>
+                      +
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
 
 
-        <% if videos.any? %>
-          <div class="videos">
-            <%= pluralize(videos.count, "Video") %>
-          </div>
+
+
+
+
+
+
+          <% end %>
         <% end %>
+      </div>
 
-
-      <% end %>  
-    <% end %>
-
+    </div>
   </div>
 </div>

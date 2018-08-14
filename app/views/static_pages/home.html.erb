@@ -66,7 +66,7 @@
                     <%= video.description %>
                   </div>
                 </div>
-                <div class="no-mobile twenty-two center center-height title-lower">
+                <div class="no-mobile twenty-two right title-lower">
                   <%= pluralize(video.votes.count, "Vote") %>
                   <% if user_signed_in? && current_user.voted?(video) %>
                     <%= link_to "-", video_vote_path(video, current_user.vote_id(video)), method: :delete %>
@@ -81,16 +81,30 @@
               </div>
             </div>
 
+          <% end %>
 
-
-
-
-
-
-
+          <%= link_to(videos_path) do %>
+            <div class="submit-button">
+              See More
+            </div>
           <% end %>
         <% end %>
       </div>
+
+
+
+
+
+
+      <div class="padding-top-large">
+        <div class="padding-bottom page-title center">
+          Upcoming albums
+        </div>
+
+        blah blah will link to amazon and look like the thing above, prob will only have to hard code everything
+      </div>
+
+
 
 
 
